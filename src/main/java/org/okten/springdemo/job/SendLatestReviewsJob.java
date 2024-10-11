@@ -49,7 +49,7 @@ public class SendLatestReviewsJob {
 		message.setText(text);
 
 		log.info("Sending mail about latest reviews...");
-		this.mailSender.send(message);
+//		this.mailSender.send(message);
 	}
 
 	// fixedDelay = 1 hour

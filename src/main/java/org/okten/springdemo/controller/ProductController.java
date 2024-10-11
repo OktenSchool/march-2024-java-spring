@@ -1,5 +1,6 @@
 package org.okten.springdemo.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.okten.springdemo.dto.ReviewDTO;
@@ -8,6 +9,7 @@ import org.okten.springdemo.entity.Review;
 import org.okten.springdemo.repository.ProductRepository;
 import org.okten.springdemo.service.ProductService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +51,8 @@ public class ProductController {
         }
     }
 
+//    @Secured("SELLER")
+    @RolesAllowed("SELLER")
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return ResponseEntity.ok(this.productRepository.save(product));

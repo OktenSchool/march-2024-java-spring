@@ -35,3 +35,9 @@ logging:
       rmi:
         transport:
           tcp: OFF
+jwt:
+  secret: SUPER_SECRET_WORD_ABCEDRKAJSDLKJASD
+  access-token:
+    ttl-millis: 1000000
+  refresh-token:
+    ttl-millis: 10000000
